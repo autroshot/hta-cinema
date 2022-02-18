@@ -53,7 +53,7 @@
 						<label for="input-password">비밀번호</label>
 					</div>
 					<div class="col-9 align-self-center">
-						<input type="text" class="form-control" id="input-password" name="password" 
+						<input type="password" class="form-control" id="input-password" name="password" 
 						placeholder="영문, 숫자, 특수기호 중 2가지 이상 조합" maxlength="16" 
 						data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="manual" 
 						title="비밀번호 설정 시 사용가능한 특수문자는 ~ ! @ # $ % ^ & * + = - ? _ 입니다." />
@@ -70,7 +70,7 @@
 						<label for="input-password-check">비밀번호 확인</label>
 					</div>
 					<div class="col-9 align-self-center">
-						<input type="text" class="form-control" id="input-password-check" 
+						<input type="password" class="form-control" id="input-password-check" 
 						placeholder="영문, 숫자, 특수기호 중 2가지 이상 조합" maxlength="16" 
 						data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="manual" 
 						title="비밀번호 설정 시 사용가능한 특수문자는 ~ ! @ # $ % ^ & * + = - ? _ 입니다." />
