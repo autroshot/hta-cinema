@@ -10,7 +10,7 @@
 			<div class="modal-body">
 				<form id="form-login">
 					<input type="text" class="form-control" name="id" placeholder="아이디" maxlength="12" />
-					<input type="text" class="form-control mt-3" name="password" placeholder="비밀번호" maxlength="12" />
+					<input type="password" class="form-control mt-3" name="password" placeholder="비밀번호" maxlength="12" />
 				</form>
 					<div class="form-check mt-3">
 						<input class="form-check-input" type="checkbox" value="" id="form-check-saveId" name="saveId">
