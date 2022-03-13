@@ -656,6 +656,7 @@
 				dataType: 'json',
 				async: false,
 				success: function (response) {
+					console.log(response);
 					if (response.items) {
 						reviewModal.show();
 					} else {

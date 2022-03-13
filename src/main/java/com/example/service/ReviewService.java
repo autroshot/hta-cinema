@@ -189,26 +189,19 @@ public class ReviewService {
 		return averageScore;
 	}
 	
-	/**
-	 * 사용자 번호로 해당 영화에 대한 예매 여부를 확인한다.
-	 * @param customerNo
-	 * @param movieNo
-	 * @return
-	 */
-	public boolean isReserved(int customerNo, int movieNo) {
+	public boolean getQualification(int customerNo, int movieNo) {
 		List<String> isReserved = reviewMapper.getQualification(customerNo, movieNo);
-		return !isReserved.isEmpty();
-	}
-	
-	/**
-	 * 사용자 번호와 영화 번호로 해당 영화에 작성한 리뷰가 있는지 확인한다.
-	 * @param customerNo
-	 * @param movieNo
-	 * @return
-	 */
-	public boolean isWrited(int customerNo, int movieNo) {
 		Review review = reviewMapper.getMyReviewByMovieNo(customerNo, movieNo);
-		return review == null;
+		
+		if (isReserved.isEmpty()) {
+			throw new ReviewErrorException("관람평은 실관람 이후 작성 가능합니다.");
+		}
+		
+		if (review != null) {
+			throw new ReviewErrorException("이미 작성한 관람평이 있습니다.");
+		}
+		
+		return true;
 	}
 
 	private void setReviewPoints(Review review, List<ReviewPoint> points) {

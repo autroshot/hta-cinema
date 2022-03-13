@@ -144,7 +144,7 @@
 		where 
 			rn between #{beginIndex} and #{endIndex}
 	</select>
-	
+	<!-- List<String> getQualification(@Param("customerNo") int customerNo, @Param("movieNo") int movieNo); -->
 	<select id="getQualification" resultType="string">
 		select 
    			t.ticket_cancelled ticketCancelled

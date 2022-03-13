@@ -151,25 +151,12 @@ public class ReviewRestController {
 	public ResponseDto<Map<String, Object>> checkQualification(@LoginedUser Customer customer, int movieNo) {
 		
 		ResponseDto<Map<String, Object>> response = new ResponseDto<>();
-		HashMap<String, Object> items = new HashMap<>();
+		boolean isPossibleToWrite = reviewService.getQualification(customer.getNo(), movieNo);
 		
-		boolean isReserved = reviewService.isReserved(customer.getNo(), movieNo);
-		boolean isWrited = reviewService.isWrited(customer.getNo(), movieNo);
-		
-		if (isReserved) {
-			items.put("message", true);
-		} else {
-			throw new ReviewErrorException("관람평은 실관람 이후 작성 가능합니다.");
+		if (isPossibleToWrite) {
+			response.setStatus(true);
+			response.setItems(Map.of("review", "작성 가능"));
 		}
-		
-		if (isWrited) {
-			items.put("message", true);
-		} else {
-			throw new ReviewErrorException("이미 작성한 관람평이 있습니다.");
-		}
-		
-		response.setStatus(true);
-		response.setItems(items);
 		
 		return response;
 	}
